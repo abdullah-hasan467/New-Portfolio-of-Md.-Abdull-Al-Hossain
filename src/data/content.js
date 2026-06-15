@@ -10,7 +10,7 @@ export const profile = {
   location: 'Dhaka, Bangladesh',
   email: 'alhossain2100@gmail.com',
   phone: '+8801799625673',
-  heroPhoto: '/photos/hossain.png',
+  heroPhoto: '/photos/Abdullah.png',
   resumeLink: '/Abdullah_Al_Hossain_Resume.pdf',
   social: {
     linkedin: 'https://www.linkedin.com/in/hossain888/',
@@ -262,7 +262,7 @@ export const projects = [
   {
     title: 'Solar-Powered Grid-Tie Inverter',
     tag: 'Power Electronics',
-    image: '/photos/power-grid.png',
+    image: '/photos/grid-tie-solar-inverter-working-principle.webp',
     description:
       'A dual-stage buck–boost inverter architecture simulated and optimized in PSIM, enabling efficient grid synchronization while maximizing solar energy utilization and overall system reliability.',
     tools: ['PSIM', 'Power Electronics', 'Solar Integration'],
@@ -270,7 +270,7 @@ export const projects = [
   {
     title: 'IoT-Based Smart Poultry Farming',
     tag: 'IoT & Automation',
-    image: '/photos/poultry.jpg',
+    image: '/photos/Poltryfarming.jpg',
     description:
       'A connected monitoring system that tracks temperature, humidity, and air quality in real time, automating environmental control and feeding schedules to improve farm efficiency.',
     tools: ['IoT Sensors', 'Automation', 'Embedded Systems'],
@@ -278,7 +278,7 @@ export const projects = [
   {
     title: 'Earthquake Alert System',
     tag: 'Embedded & Data Systems',
-    image: '/photos/earthquake.png',
+    image: '/photos/Earthquake.jpg',
     description:
       'A real-time monitoring and warning system using a Twitter-based burst-detection algorithm, capable of detecting ~M3.5 earthquakes and issuing alerts faster than official channels.',
     tools: ['Signal Processing', 'Social Data', 'Alert Systems'],
@@ -286,7 +286,7 @@ export const projects = [
   {
     title: 'Heart Rate Monitoring System',
     tag: 'Embedded Health Tech',
-    image: '/photos/heart-rate.jpg',
+    image: '/photos/Heart_Rate_Measurement.jpg',
     description:
       'A microcontroller-based device that captures cardiovascular data in real time and applies signal-processing algorithms to derive accurate heart rate readings for continuous, low-power monitoring.',
     tools: ['Microcontroller', 'Signal Processing', 'Sensors'],
@@ -294,7 +294,7 @@ export const projects = [
   {
     title: 'Single Phase Agri Inverter (Center-Tapped Transformer)',
     tag: 'Power Electronics',
-    image: '/photos/inverter.jpg',
+    image: '/photos/Center-Tapped-Transformers.webp',
     description:
       'An inverter design using a center-tapped transformer topology, developed for agricultural applications and presented at the 2025 STI Conference.',
     tools: ['Inverter Design', 'Transformer Topology', 'Power Conversion'],
@@ -302,7 +302,7 @@ export const projects = [
   {
     title: 'Micro-strip Patch Antenna (2.4 GHz)',
     tag: 'RF & Communications',
-    image: '/photos/antenna.jpg',
+    image: '/photos/Microchip.jpg',
     description:
       'A patch antenna designed and simulated in CST Studio Suite, with dimensions and substrate materials optimized for gain, bandwidth, and radiation pattern in the 2.4 GHz band.',
     tools: ['CST Studio Suite', 'RF Design', 'Electromagnetics'],
@@ -310,7 +310,7 @@ export const projects = [
   {
     title: 'Smart Home Temperature Control System',
     tag: 'Embedded Systems',
-    image: '/photos/temp-control.jpg',
+    image: '/photos/Smarthome temperateure control.png',
     description:
       'A firmware-driven climate control system built with PIC C Compiler and validated in Proteus, dynamically adjusting heating and cooling based on live sensor data.',
     tools: ['PIC C Compiler', 'Proteus', 'Sensors & Actuators'],
@@ -326,7 +326,7 @@ export const projects = [
   {
     title: 'IoT Home Automation & Security System',
     tag: 'IoT & Automation',
-    image: '/photos/security.webp',
+    image: '/photos/smart-home-security.jpg',
     description:
       'A microcontroller-based home automation platform integrating motion detectors, door/window sensors, and cameras for remote monitoring and intrusion detection.',
     tools: ['Microcontroller', 'IoT', 'Security Sensors'],
@@ -334,7 +334,7 @@ export const projects = [
   {
     title: 'RC Car (Arduino)',
     tag: 'Robotics',
-    image: '/photos/rc-car.jpg',
+    image: '/photos/RC-Car.jpg',
     description:
       'A wireless remote-controlled car built on Arduino, combining motor control, sensor integration, and wireless communication as a hands-on introduction to robotics and automation.',
     tools: ['Arduino', 'Robotics', 'Wireless Control'],
@@ -342,7 +342,7 @@ export const projects = [
   {
     title: 'Water Level Indicator — District Champion',
     tag: 'Early Engineering',
-    image: '/photos/water-level.jpg',
+    image: '/photos/water-level-indecator.JPG',
     description:
       'A liquid-level measurement device built in grade nine, earning recognition as Division Champion — an early showcase of problem-solving and engineering creativity.',
     tools: ['Sensors', 'Basic Electronics'],
