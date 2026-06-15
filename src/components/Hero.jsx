@@ -9,7 +9,7 @@ export default function Hero() {
           <p className="tag"> Electrical & Electronics Engineer</p>
           <h1>
             Md Abdullah<br />
-            <span className="accent">Al Hossains</span>
+            <span className="accent">Al Hossain</span>
           </h1>
           <p className="hero-lede">
             Designing efficient power-conversion systems and solar-powered
