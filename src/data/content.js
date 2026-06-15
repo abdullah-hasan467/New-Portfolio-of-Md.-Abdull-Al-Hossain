@@ -23,13 +23,18 @@ export const profile = {
 }
 
 export const about = {
-  heading: 'A circuit for sustainable power, drawn from the ground up.',
+  heading: 'Advancing sustainable energy through research, innovation, and engineering.',
   paragraphs: [
-    `I'm a 23-year-old graduate in Electrical and Electronic Engineering from Independent University, Bangladesh, with a research focus on power electronics and renewable energy technologies. I currently work as an Assistant Engineer at Esquire Electronics, designing control systems and energy-efficient solutions for home appliances.`,
-    `Over the past year I've built hands-on experience across the stack — eight months designing SCADA-integrated, AI-assisted architectures for industrial automation, followed by four months as a Research Assistant developing a solar-powered portable oil extractor for off-grid communities.`,
-    `I grew up in Sherpur, where an early stint volunteering with the Bangladesh Forest Division as a wildlife rescuer shaped a lasting commitment to sustainability — something I now carry into every system I design.`,
+    `I'm Md. Abdullah Al Hossain, a 24-year-old Electrical and Electronic Engineering graduate from Independent University, Bangladesh (IUB), where I earned my B.Sc. degree with strong academic performance and a 50% merit-based scholarship. My academic and research interests focus on power electronics, renewable energy systems, and converter technologies, with a passion for developing sustainable solutions that address real-world energy challenges.`,
+
+    `During my undergraduate studies, I led a UK Government-funded thesis project titled “Design and Development of a Solar-Powered Portable Oil Extractor,” which received national recognition, including a second-place award at Renewable Energy Fest 2025 at BUET. I have also authored and co-authored several journal articles and IEEE conference papers in the fields of power electronics, renewable energy, and energy-efficient system design.`,
+
+    `Following graduation, I worked as a Research Assistant at Independent University, Bangladesh, contributing to the design, simulation, and testing of renewable energy systems, power electronic converters, and solar energy applications. I later joined Esquire Electronics Ltd. as an Assistant Engineer (Electrical), where I worked on control system development, PCB design, sensor integration, and energy-efficient solutions for air conditioning systems, strengthening my ability to bridge research with industry applications.`,
+
+    `Growing up in Sherpur inspired a deep appreciation for nature and sustainability. Beyond engineering, I have actively participated in wildlife rescue and conservation initiatives through volunteer work with the Bangladesh Forest Department, reinforcing my commitment to environmentally responsible innovation and sustainable development.`,
   ],
-  closing: `Outside of engineering, I play cricket, football, and volleyball, and write poetry when a circuit needs time to breathe.`,
+
+  closing: `Outside of research and engineering, I enjoy playing cricket, football, and volleyball, as well as reading and writing poetry. Looking ahead, I aspire to pursue a fully funded research-based Master's or PhD and contribute to the advancement of sustainable energy technologies through impactful research, teaching, and innovation.`,
 }
 
 export const education = [

@@ -6,7 +6,7 @@ export default function Hero() {
     <section id="top" className="hero">
       <div className="container hero-grid">
         <div className="hero-copy">
-          <p className="tag">EEE / Power Electronics Engineer</p>
+          <p className="tag"> Electrical & Electronics Engineer</p>
           <h1>
             Md Abdullah<br />
             <span className="accent">Al Hossain</span>
