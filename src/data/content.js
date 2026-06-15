@@ -363,7 +363,7 @@ export const trainingAndAwards = {
   ],
   certifications: [
     {
-      title: 'Certified in Volunteer Administration (CVA)',
+      title: 'Certified in Volunteer Administration',
       description:
         'Volunteered in wildlife rescue and conservation with the Sherpur Wildlife and Nature Conservation Division, contributing to the protection of local wildlife.',
     },
