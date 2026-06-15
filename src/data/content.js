@@ -224,6 +224,14 @@ export const publications = {
   ],
 }
 
+export const reviewing = [
+  {
+    year: '2026',
+    journal: 'Asian Journal of Research and Reviews in Physics',
+  },
+]
+
+
 export const thesis = {
   title: 'Design & Development of an Energy-Efficient Solar-Powered Portable Oil Extractor',
   funding: 'Fully funded by the Energy Saving Trust, UK',
