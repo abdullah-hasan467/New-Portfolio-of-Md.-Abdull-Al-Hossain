@@ -9,7 +9,7 @@ export default function GrantsResearch() {
         <div>
           <Reveal className="section-head">
             <p className="tag">04 · Funding</p>
-            <h2>Grants &amp; sponsorship</h2>
+            <h2>Grants &amp; Sponsorship</h2>
             <p>External financial support that has backed thesis and project work.</p>
           </Reveal>
 

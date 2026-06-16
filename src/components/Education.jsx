@@ -8,7 +8,7 @@ export default function Education() {
       <div className="container">
         <Reveal className="section-head">
           <p className="tag">02 · Education</p>
-          <h2>Academic foundation</h2>
+          <h2>Academic Foundation</h2>
           <p>
             Four stages of schooling that built the analytical groundwork for
             a career in power electronics and renewable energy.

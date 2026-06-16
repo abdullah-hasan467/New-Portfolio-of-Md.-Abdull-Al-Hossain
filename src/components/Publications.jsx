@@ -35,7 +35,7 @@ export default function Publications() {
       <div className="container">
         <Reveal className="section-head">
           <p className="tag">05 · Publications</p>
-          <h2>Research output</h2>
+          <h2>Research Output</h2>
           <p>Peer-reviewed journal articles, conference papers, and presentations in power electronics and renewable energy.</p>
         </Reveal>
 

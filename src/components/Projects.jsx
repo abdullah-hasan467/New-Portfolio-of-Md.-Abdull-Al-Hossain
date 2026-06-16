@@ -7,7 +7,7 @@ export default function Projects() {
       <div className="container">
         <Reveal className="section-head">
           <p className="tag">07 · Projects</p>
-          <h2>Selected builds</h2>
+          <h2>Selected Builds</h2>
           <p>
             Eleven projects spanning power electronics, embedded systems, IoT,
             and RF design — from circuit prototypes to field-ready devices.

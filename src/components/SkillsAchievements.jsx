@@ -10,7 +10,7 @@ export default function SkillsAchievements() {
       <div className="container">
         <Reveal className="section-head">
           <p className="tag">08 · Achievements</p>
-          <h2>Training &amp; recognition</h2>
+          <h2>Training &amp; Recognition</h2>
           <p>Certifications, academic honors, and the toolkit behind the projects.</p>
         </Reveal>
 
