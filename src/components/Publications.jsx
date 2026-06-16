@@ -78,7 +78,7 @@ export default function Publications() {
         <Reveal delay={260}>
           <p className="pub-cta">
             Interested in collaborating on research?{' '}
-            <a href="#contact">Get in touch</a>.
+            <a href="#contact">Get in Touch</a>.
           </p>
         </Reveal>
       </div>
