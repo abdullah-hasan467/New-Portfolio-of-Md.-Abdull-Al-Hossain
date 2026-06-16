@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Menu, X, Cpu } from 'lucide-react'
 import { profile } from '../data/content'
+import ThemeToggle from './ThemeToggle'
 
 const links = [
   { href: '#about', label: 'About' },
@@ -38,6 +39,8 @@ export default function Header() {
           ))}
         </nav>
 
+        <ThemeToggle />
+
         <button
           className="nav-toggle"
           aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
@@ -69,6 +72,7 @@ export default function Header() {
           align-items: center;
           justify-content: space-between;
           height: 72px;
+          gap: 16px;
         }
         .brand {
           display: flex;
@@ -86,6 +90,8 @@ export default function Header() {
         .nav-links {
           display: flex;
           gap: 30px;
+          flex: 1;
+          justify-content: flex-end;
         }
         .nav-links a {
           font-family: var(--font-mono);
@@ -125,6 +131,7 @@ export default function Header() {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
+            justify-content: flex-start;
           }
           .nav-links.open {
             max-height: 500px;

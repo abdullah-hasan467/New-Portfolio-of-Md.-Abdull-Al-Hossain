@@ -22,6 +22,28 @@
   --radius: 4px;
 }
 
+/* Light mode overrides */
+[data-theme="light"] {
+  --bg: #f4f6fb;
+  --bg-elevated: #e8ecf4;
+  --bg-card: #ffffff;
+  --ink: #0e1320;
+  --ink-soft: #3a4460;
+  --ink-faint: #6b7793;
+  --line: #cdd3e0;
+  --copper: #c0622a;
+  --copper-bright: #d9742f;
+  --circuit-green: #1e8c5a;
+  --signal-blue: #2563a8;
+}
+
+[data-theme="light"] body::before {
+  opacity: 0.08;
+}
+
+[data-theme="light"] .neural-bg {
+  opacity: 0.35;
+}
 * {
   margin: 0;
   padding: 0;
