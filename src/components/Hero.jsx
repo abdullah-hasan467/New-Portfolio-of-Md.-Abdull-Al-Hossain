@@ -1,12 +1,15 @@
+import { useState } from 'react'
 import { ArrowDown, Mail } from 'lucide-react'
 import { profile } from '../data/content'
 
 export default function Hero() {
+  const [available, setAvailable] = useState(true)
+
   return (
     <section id="top" className="hero">
       <div className="container hero-grid">
         <div className="hero-copy">
-          <p className="tag"> Electrical & Electronics Engineer</p>
+          <p className="tag">Electrical &amp; Electronics Engineer</p>
           <h1>
             Md Abdullah<br />
             <span className="accent">Al Hossain</span>
@@ -37,8 +40,16 @@ export default function Hero() {
             </div>
             <div>
               <span className="meta-label">Status</span>
-              <span className="meta-value">
-                <span className="dot" /> Open to research &amp; industry roles
+              <span
+                className="meta-value status-toggle"
+                onClick={() => setAvailable(v => !v)}
+                style={{ cursor: 'pointer', userSelect: 'none' }}
+                title="Click to toggle availability"
+              >
+                <span className={`dot ${available ? 'dot-open' : 'dot-closed'}`} />
+                <span className={`status-text ${available ? '' : 'status-closed'}`}>
+                  {available ? 'Open to research & industry roles' : 'Not available'}
+                </span>
               </span>
             </div>
           </div>
@@ -131,15 +142,57 @@ export default function Hero() {
           align-items: center;
           gap: 8px;
         }
+
+        /* --- DOT --- */
         .dot {
-          width: 8px;
-          height: 8px;
+          width: 9px;
+          height: 9px;
           border-radius: 50%;
-          background: var(--circuit-green);
-          box-shadow: 0 0 0 3px rgba(111,207,151,0.18);
           display: inline-block;
+          flex-shrink: 0;
+        }
+        .dot-open {
+          background: var(--circuit-green);
+          animation: blink-green 1.4s ease-in-out infinite;
+        }
+        .dot-closed {
+          background: #e53e3e;
+          animation: blink-red 0.7s ease-in-out infinite;
+        }
+        .status-text {
+          transition: color 0.3s ease;
+        }
+        .status-closed {
+          color: #e53e3e;
+        }
+        .status-toggle:hover .status-text {
+          opacity: 0.8;
         }
 
+        @keyframes blink-green {
+          0%, 100% {
+            opacity: 1;
+            box-shadow: 0 0 0 3px rgba(111,207,151,0.20);
+          }
+          50% {
+            opacity: 0.35;
+            box-shadow: 0 0 0 6px rgba(111,207,151,0.06);
+          }
+        }
+        @keyframes blink-red {
+          0%, 100% {
+            opacity: 1;
+            background: #e53e3e;
+            box-shadow: 0 0 0 3px rgba(229,62,62,0.28);
+          }
+          50% {
+            opacity: 0.6;
+            background: #f6ad55;
+            box-shadow: 0 0 0 7px rgba(246,173,85,0.12);
+          }
+        }
+
+        /* --- SCOPE / FIGURE --- */
         .hero-figure {
           display: flex;
           justify-content: center;
@@ -199,6 +252,7 @@ export default function Hero() {
         .pin-2 { bottom: -10px; right: 12%; }
         .pin-3 { top: 40%; right: -34px; }
 
+        /* --- SCROLL CUE --- */
         .scroll-cue {
           align-self: center;
           margin-top: 56px;
@@ -216,8 +270,9 @@ export default function Hero() {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(6px); }
         }
+
         @media (prefers-reduced-motion: reduce) {
-          .trace, .scroll-cue { animation: none; }
+          .trace, .scroll-cue, .dot-open, .dot-closed { animation: none; }
         }
 
         @media (max-width: 900px) {
