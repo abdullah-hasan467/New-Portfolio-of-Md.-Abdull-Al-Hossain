@@ -176,14 +176,15 @@ export const publications = {
       authors: 'M. A. Al Hossain, M. A. I. Alvy, M. M. Hasan & M. M. Hossain',
       title: 'A Modified Non-Isolated Buck Converter using Z-Source Topology',
       venue: '2026 IEEE 2nd International Conference on Quantum Photonics, Artificial Intelligence & Networking (QPAIN), pp. 1–6',
-      status: 'In Press',
+      link: 'https://ieeexplore.ieee.org/document/11546581',
     },
     {
       year: '2026',
       authors: 'M. A. I. Alvy, M. A. Al Hossain, M. M. Hasan & M. M. Hossain',
       title: 'Design and Comparison of Conventional SEPIC Converter with Modified SEPIC Converter',
       venue: '2026 IEEE 2nd International Conference on Quantum Photonics, Artificial Intelligence & Networking (QPAIN), pp. 1–5',
-      status: 'In Press',
+      link: 'https://ieeexplore.ieee.org/document/11546497',
+
     },
   ],
   // underReview: [
