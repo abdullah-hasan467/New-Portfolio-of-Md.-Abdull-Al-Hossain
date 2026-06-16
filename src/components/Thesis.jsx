@@ -16,16 +16,22 @@ export default function Thesis() {
 
         <div className="thesis-grid">
           <Reveal className="thesis-media">
-            <div className="media-frame">
-              <img src={thesis.image} alt="3D render of the solar-powered portable oil extractor" />
-            </div>
-            {thesis.video && (
-              <video controls loop className="media-frame thesis-video" poster={thesis.image}>
-                <source src={thesis.video} type="video/mp4" />
-                Your browser does not support embedded video.
-              </video>
-            )}
-          </Reveal>
+  <div className="media-frame">
+    <img src={thesis.image} alt="3D render of the solar-powered portable oil extractor" />
+  </div>
+  {thesis.video && (
+    <video
+      controls
+      className="media-frame thesis-video"
+      poster={thesis.image}
+      preload="metadata"
+      playsInline
+    >
+      <source src={thesis.video} type="video/mp4" />
+      Your browser does not support embedded video.
+    </video>
+  )}
+</Reveal>
 
           <Reveal delay={100} className="thesis-copy">
             <p className="thesis-summary">{thesis.summary}</p>

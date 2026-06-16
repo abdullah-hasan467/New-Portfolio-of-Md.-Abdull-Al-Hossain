@@ -241,7 +241,7 @@ export const thesis = {
   title: 'Design & Development of an Energy-Efficient Solar-Powered Portable Oil Extractor',
   funding: 'Fully funded by the Energy Saving Trust, UK',
   image: '/photos/thesis.png',
-  video: '/photos/thesis-video.mp4',
+  video: '/photos/Thesis Video.mp4',
   summary:
     'A sustainable, off-grid solution for extracting oil from seeds using solar power — designed for remote communities with limited access to traditional electricity. The system pairs photovoltaic panels with an optimized low-power motor and filtration assembly, delivering food- and medicinal-grade oil with minimal environmental footprint.',
   details: [
