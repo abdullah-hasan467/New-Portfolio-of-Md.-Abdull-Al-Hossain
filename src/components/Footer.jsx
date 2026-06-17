@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container footer-row">
         <span>© {year} {profile.name}. All rights reserved.</span>
-        <span className="footer-built">Built with React.JS</span>
+        <span className="footer-built">Built By Hasan Abdullah</span>
       </div>
 
       <style>{`
