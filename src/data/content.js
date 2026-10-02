@@ -135,21 +135,47 @@ export const publications = {
     },
   ],
   conferences: [
+
+    {
+  year: '2026',
+  authors: 'MA Al Hossain, F. A. Khan, S. Afrin, N. H. Kaykobad, M. A. I. Alvy & M. Rahman',
+  title: 'Isolated Multi-Level High Step-Down DC–DC Buck Converter with Coupled-Inductor for Renewable Energy Applications',
+  venue: '7th International Conference on Electrical Engineering and Information & Communication Technology (ICEEICT 2027)',
+  status: 'Under Review'
+},
+
+{
+  year: '2026',
+  authors: 'MA Al Hossain, S. S. Ahmed, F. A. Khan & M. A. I. Alvy',
+  title: 'Preliminary Numerical and Energy Balance Assessment of a Biomass Solar Hybrid Dryer for Agricultural Applications',
+  venue: '7th International Conference on Electrical Engineering and Information & Communication Technology (ICEEICT 2027)',
+  status: 'Under Review'
+},
+
+{
+  year: '2026',
+  authors: 'M. A. I. Alvy, MA Al Hossain & M. Rahman',
+  title: 'Design and Performance Analysis of a Single Switch Zeta-Derived DC–DC Converter',
+  venue: '5th International Conference on Robotics, Electrical and Signal Processing Techniques (ICREST 2027)',
+  status: 'Under Review'
+},
+
+{
+  year: '2026',
+  authors: 'M. A. I. Alvy, MA Al Hossain & M. Rahman',
+  title: 'A Single Switch Non-Isolated SEPIC Converter with Improved Power Conversion Characteristics',
+  venue: '7th International Conference on Electrical Engineering and Information & Communication Technology (ICEEICT 2027)',
+  status: 'Under Review'
+},
+
 {
       year: '2026',
       authors: 'M. I. Abedin,M. A. Al Hossain, M. M. Shovo, M. A. Sadman & K. M. Salim',
       title: 'Energy Efficient 60V Dual- Pole Three Phase Motor Pump for Solar Irrigation',
       venue: '2026 IEEE International Conference on Power, Electrical, Electronics and Industrial Applications (PEEIACON)',
-      status: 'Under-Review'
+      status: 'In Press; Best Paper Award (Poster Paper Presentation Category)'
     },
-    {
-      year: '2026',
-      authors: 'MA Al Hossain, S. S. Ahmed, S. N. Sunjina, F. A. Khan, M. A. I. Alvy, & M. Rahman',
-      title: 'Modeling and Simulation of a Biomass-Solar Hybrid Dryer for Enhanced Performance ',
-      venue: '2026 1st International Conference on Next-Generation Electrical & Electronics, Computer Systems, and Technologies (iCONEECT 2026) ',
-      status: 'Under-Review'
-    },
-
+    
     {
       year: '2025',
       authors: 'M. A. I. Alvy, M. A. Al Hossain & K. M. Salim',
