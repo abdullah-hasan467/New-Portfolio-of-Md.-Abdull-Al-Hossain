@@ -172,8 +172,8 @@ export const publications = {
       year: '2026',
       authors: 'M. I. Abedin,M. A. Al Hossain, M. M. Shovo, M. A. Sadman & K. M. Salim',
       title: 'Energy Efficient 60V Dual- Pole Three Phase Motor Pump for Solar Irrigation',
-      venue: '2026 IEEE International Conference on Power, Electrical, Electronics and Industrial Applications (PEEIACON)',
-      status: 'In Press; Best Paper Award (Poster Paper Presentation Category)'
+      venue: '2026 IEEE International Conference on Power, Electrical, Electronics and Industrial Applications (PEEIACON), Best Paper Award (Poster Paper Presentation Category)',
+      status: 'In Press;'
     },
     
     {
