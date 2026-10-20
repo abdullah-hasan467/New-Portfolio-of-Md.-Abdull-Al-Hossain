@@ -7,11 +7,11 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container footer-row">
         <span>
-          © {year} {profile.name}. All rights reserved.
+        Copyright  © {year} {profile.name}. All rights reserved.
         </span>
 
         <div className="footer-right">
-          <span className="footer-built">Developed By Hasan</span>
+          <span className="footer-built">Designed & developed by Hasan</span>
           <LastUpdate />
         </div>
       </div>
