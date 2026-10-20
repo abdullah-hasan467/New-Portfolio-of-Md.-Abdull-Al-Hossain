@@ -48,7 +48,7 @@ export default function LastUpdate() {
       <div className="lu-row">
         <DatabaseZap size={14} strokeWidth={1.75} className="lu-icon" />
         <span>
-          Last update: {dateFmt.format(lastDate)}, {timeFmt.format(lastDate)}
+          Database Update: {dateFmt.format(lastDate)}, {timeFmt.format(lastDate)}
         </span>
       </div>
       <div className="lu-ago">{elapsed(lastDate, now)} ago</div>
