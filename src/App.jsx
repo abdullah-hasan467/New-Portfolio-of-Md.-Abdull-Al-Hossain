@@ -12,6 +12,8 @@ import SkillsAchievements from './components/SkillsAchievements'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Reviewer from './components/Reviewer'
+import Extracurricular from './components/Extracurricular'
+import Affiliations from './components/Affiliations'
 
 export default function App() {
   return (
@@ -30,6 +32,9 @@ export default function App() {
         <Thesis />
         <Projects />
         <SkillsAchievements />
+        <Extracurricular />
+        
+<Affiliations />
         <Contact />
       </main>
       <Footer />

@@ -22,6 +22,21 @@ export const profile = {
   },
 }
 
+
+export const extracurricular = [
+  { icon: 'Users', text: 'IEEE Student Branch, Independent University, Bangladesh.' },
+  { icon: 'Trophy', text: 'Engineering & Renewable Energy Competitions.' },
+  { icon: 'Activity', text: 'Sports: Active player in volleyball, handball, and cricket at school and university.' },
+  { icon: 'HeartHandshake', text: 'Volunteer, Bangladesh Physics Olympiad (2023 & 2024)', year: '2023–2024' },
+  { icon: 'Telescope', text: 'Volunteer, Bangladesh Olympiad on Astronomy and Astrophysics (2024)', year: '2024' },
+  { icon: 'PawPrint', text: 'Volunteer, Wildlife Rescue and Conservation, Bangladesh Forest Department (2019–2023)', year: '2019–2023' },
+]
+
+export const affiliations = [
+  { icon: 'BadgeCheck', text: 'Member, IEEE.' },
+  { icon: 'BadgeCheck', text: 'Member, Institution of Engineers (IEB) Bangladesh' },
+]
+
 export const about = {
   heading: 'Advancing sustainable energy through research, innovation, and engineering.',
   paragraphs: [
@@ -74,7 +89,7 @@ export const education = [
 
 export const experience = [
   {
-    period: 'Apr 2025 — Feb 2026',
+    period: 'Apr 2025 — Aug 2026',
     title: 'Assistant Engineer (Electrical)',
     org: 'Esquire Electronics Ltd., Dhaka, Bangladesh',
     points: [
@@ -86,7 +101,7 @@ export const experience = [
   },
   {
     period: 'Apr 2024 — Mar 2025',
-    title: 'Research Assistant',
+    title: 'Research Assistant (RA)',
     org: 'Independent University Bangladesh (IUB), Dhaka, Bangladesh',
     points: [
       'Assisted in designing, simulating, and testing power electronic circuits for renewable energy applications.',
@@ -94,6 +109,18 @@ export const experience = [
       'Supported computational modeling and simulation of renewable energy systems using MATLAB/Simulink and related engineering tools.',
       'Developed prototypes and evaluated the performance of solar inverters, DC-DC converters, and grid-tie systems.',
       'Optimized energy conversion processes to achieve higher efficiency and reliable system performance.',
+    ],
+  },
+
+  {
+    period: 'Jan 2021 — Jan 2024',
+    title: 'Undergraduate Teaching Assistant (TA)',
+    org: 'Department of Physical Sciences, Independent University Bangladesh (IUB), Dhaka, Bangladesh',
+    points: [
+      'Assisted faculty and students in laboratory classes, including PHY101L, PHY102L, and PHY121L, ensuring effective practical learning and laboratory support.',
+      'Prepared and managed academic materials, including assignments, attendance records, grade sheets, and other course-related documentation.',
+      'Supported examinations through invigilation, coordination, and ethical oversight while ensuring smooth and disci-plined exam operations',
+      'Organized departmental events such as Physics Olympiads and Space Carnivals, mentored junior TAs, prepared duty rosters, and ensured compliance with departmental protocols.',
     ],
   },
 ]
@@ -135,6 +162,15 @@ export const publications = {
     },
   ],
   conferences: [
+
+     {
+  year: '2026',
+  authors: 'MA Al Hossain, S. S. Ahmed & M. A. I. Alvy',
+  title: 'Transient Voltage and Current Response of Transmission Networks to Three-Phase Faults and Generation Def-icits: A Simulation Approach',
+  venue: '5th International Conference on Robotics, Electrical and Signal Processing Techniques (ICREST 2027)',
+  status: 'Under Review'
+},
+ 
 
     {
   year: '2026',

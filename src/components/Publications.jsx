@@ -50,7 +50,7 @@ export default function Publications() {
 
         <Reveal delay={80} className="pub-group">
           <h3 className="pub-group-title conference">
-            <Mic size={18} /> Conference Proceedings (Peer-Reviewed)
+            <Mic size={18} /> International Conference Proceedings (Peer-Reviewed)
           </h3>
           {byYearDesc(publications.conferences).map((item, i) => (
             <PubRow key={i} item={item} showStatus />
@@ -68,7 +68,7 @@ export default function Publications() {
 
         <Reveal delay={200} className="pub-group">
           <h3 className="pub-group-title presentations">
-            <Mic size={18} /> Conference Presentations
+            <Mic size={18} /> International Conference Presentations
           </h3>
           {byYearDesc(publications.presentations).map((item, i) => (
             <PubRow key={i} item={item} />
