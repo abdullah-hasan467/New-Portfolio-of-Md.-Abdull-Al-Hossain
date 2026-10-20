@@ -1,5 +1,5 @@
 import { BadgeCheck } from 'lucide-react'
-import FadeIn from './FadeIn'
+import Reveal from './Reveal'
 
 const items = [
   'Member, IEEE.',
@@ -8,42 +8,72 @@ const items = [
 
 export default function Affiliations() {
   return (
-    <section id="affiliations" className="section">
+    <section id="affiliations">
       <div className="container">
-        <FadeIn as="h1" className="section-title">
-          Professional Affiliations
-        </FadeIn>
+        <Reveal className="section-head">
+          <p className="tag">08b · Involvement</p>
+          <h2>Professional Affiliations</h2>
+        </Reveal>
 
-        <ul
-          style={{
-            listStyle: 'none',
-            padding: 0,
-            margin: '24px 0 0',
-            display: 'grid',
-            gap: '14px',
-          }}
-        >
+        <div className="af-list">
           {items.map((text, i) => (
-            <FadeIn
-              as="li"
-              key={i}
-              delay={i * 100}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '12px',
-                padding: '16px 20px',
-                border: '1px solid rgba(255,255,255,0.12)',
-                borderRadius: '10px',
-                background: 'rgba(255,255,255,0.03)',
-              }}
-            >
-              <BadgeCheck size={20} style={{ color: 'var(--accent, #c8793a)', flexShrink: 0 }} />
-              <span>{text}</span>
-            </FadeIn>
+            <Reveal key={text} delay={i * 100} className="af-item">
+              <div className="af-head">
+                <div className="af-icon">
+                  <BadgeCheck size={18} strokeWidth={1.75} />
+                </div>
+                <div className="af-titles">
+                  <p className="af-text">{text}</p>
+                </div>
+              </div>
+            </Reveal>
           ))}
-        </ul>
+        </div>
       </div>
+
+      <style>{`
+        .af-list {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+        }
+        .af-item {
+          border: 1px solid var(--line);
+          border-radius: var(--radius);
+          padding: 28px;
+          background: var(--bg-card);
+        }
+        .af-head {
+          display: flex;
+          align-items: center;
+          gap: 18px;
+        }
+        .af-icon {
+          width: 40px;
+          height: 40px;
+          flex-shrink: 0;
+          border: 1px solid var(--line);
+          border-radius: var(--radius);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--copper);
+        }
+        .af-titles {
+          flex: 1;
+          min-width: 0;
+        }
+        .af-text {
+          color: var(--ink-soft);
+          line-height: 1.6;
+        }
+
+        @media (max-width: 600px) {
+          .af-item {
+            padding: 22px;
+          }
+        }
+      `}</style>
     </section>
   )
 }

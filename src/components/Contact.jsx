@@ -13,59 +13,66 @@ const links = [
 export default function Contact() {
   return (
     <section id="contact">
-      <div className="container contact-grid">
-        <Reveal>
+      <div className="container">
+        <Reveal className="section-head">
           <p className="tag">09 · Contact</p>
-          <h2 className="contact-title">Let's build something efficient.</h2>
-          <p className="contact-lede">
+          <h2>Let's build something efficient.</h2>
+          <p>
             Open to research collaborations, graduate opportunities, and roles
             in power electronics or renewable energy. Reach out — I usually
             reply within a day.
           </p>
-
-          <div className="contact-direct">
-            <a href={`mailto:${profile.email}`} className="contact-line">
-              <Mail size={18} /> {profile.email}
-            </a>
-            <a href={`tel:${profile.phone}`} className="contact-line">
-              <Phone size={18} /> {profile.phone}
-            </a>
-            <span className="contact-line">
-              <MapPin size={18} /> {profile.location}
-            </span>
-          </div>
         </Reveal>
 
-        <Reveal delay={100} className="contact-links">
-          <p className="contact-links-label">Find me online</p>
-          <div className="links-list">
-            {links.map(({ label, href, icon: Icon }) => (
-              <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="link-row">
-                <span><Icon size={16} /> {label}</span>
-                <ExternalLink size={14} />
+        <div className="contact-grid">
+          <Reveal className="contact-direct-card">
+            <p className="contact-links-label">Direct</p>
+            <div className="contact-direct">
+              <a href={`mailto:${profile.email}`} className="contact-line">
+                <span className="contact-icon"><Mail size={18} strokeWidth={1.75} /></span>
+                <span className="contact-text">{profile.email}</span>
               </a>
-            ))}
-          </div>
-          <a href={`mailto:${profile.email}`} className="btn btn-solid contact-cta">
-            <Mail size={15} /> Send an Email
-          </a>
-        </Reveal>
+              <a href={`tel:${profile.phone}`} className="contact-line">
+                <span className="contact-icon"><Phone size={18} strokeWidth={1.75} /></span>
+                <span className="contact-text">{profile.phone}</span>
+              </a>
+              <span className="contact-line">
+                <span className="contact-icon"><MapPin size={18} strokeWidth={1.75} /></span>
+                <span className="contact-text">{profile.location}</span>
+              </span>
+            </div>
+          </Reveal>
+
+          <Reveal delay={100} className="contact-links">
+            <p className="contact-links-label">Find me online</p>
+            <div className="links-list">
+              {links.map(({ label, href, icon: Icon }) => (
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="link-row">
+                  <span><Icon size={16} /> {label}</span>
+                  <ExternalLink size={14} />
+                </a>
+              ))}
+            </div>
+            <a href={`mailto:${profile.email}`} className="btn btn-solid contact-cta">
+              <Mail size={15} /> Send an Email
+            </a>
+          </Reveal>
+        </div>
       </div>
 
       <style>{`
         .contact-grid {
           display: grid;
           grid-template-columns: 1.2fr 1fr;
-          gap: 64px;
+          gap: 24px;
+          align-items: start;
         }
-        .contact-title {
-          font-size: clamp(2rem, 4.5vw, 3rem);
-          margin: 16px 0 18px;
-        }
-        .contact-lede {
-          color: var(--ink-soft);
-          max-width: 480px;
-          margin-bottom: 36px;
+        .contact-direct-card,
+        .contact-links {
+          border: 1px solid var(--line);
+          border-radius: var(--radius);
+          padding: 28px;
+          background: var(--bg-card);
         }
         .contact-direct {
           display: flex;
@@ -75,21 +82,29 @@ export default function Contact() {
         .contact-line {
           display: flex;
           align-items: center;
-          gap: 12px;
+          gap: 14px;
           font-family: var(--font-mono);
           font-size: 0.95rem;
           color: var(--ink);
+          min-width: 0;
         }
-        .contact-line svg {
-          color: var(--copper);
-        }
-
-        .contact-links {
+        .contact-icon {
+          width: 40px;
+          height: 40px;
+          flex-shrink: 0;
           border: 1px solid var(--line);
           border-radius: var(--radius);
-          padding: 28px;
-          background: var(--bg-card);
-          align-self: start;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--copper);
+        }
+        .contact-text {
+          min-width: 0;
+          overflow-wrap: anywhere;
+        }
+        a.contact-line:hover .contact-text {
+          color: var(--copper-bright);
         }
         .contact-links-label {
           font-family: var(--font-mono);
@@ -132,7 +147,12 @@ export default function Contact() {
         @media (max-width: 860px) {
           .contact-grid {
             grid-template-columns: 1fr;
-            gap: 40px;
+          }
+        }
+        @media (max-width: 600px) {
+          .contact-direct-card,
+          .contact-links {
+            padding: 22px;
           }
         }
       `}</style>

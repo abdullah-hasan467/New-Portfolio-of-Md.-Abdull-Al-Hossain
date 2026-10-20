@@ -7,6 +7,7 @@ export default function Experience() {
     <section id="experience">
       <div className="container">
         <Reveal className="section-head">
+        
           <p className="tag">03 · Experience</p>
           <h2>Where the theory met the hardware</h2>
           <p>
