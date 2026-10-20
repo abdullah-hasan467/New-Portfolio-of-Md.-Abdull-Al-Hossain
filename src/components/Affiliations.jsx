@@ -11,7 +11,7 @@ export default function Affiliations() {
     <section id="affiliations">
       <div className="container">
         <Reveal className="section-head">
-          <p className="tag">08b · Involvement</p>
+          <p className="tag">08b · Involvements</p>
           <h2>Professional Affiliations</h2>
         </Reveal>
 
