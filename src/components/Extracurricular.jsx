@@ -2,26 +2,30 @@ import { Users, Trophy, Activity, HeartHandshake, Telescope, PawPrint } from 'lu
 import Reveal from './Reveal'
 
 const items = [
-  { Icon: Users, text: 'IEEE Student Branch, Independent University, Bangladesh.' },
-  { Icon: Trophy, text: 'Engineering & Renewable Energy Competitions.' },
+  { Icon: Users, text: 'IEEE Student Branch, Independent University, Bangladesh.',
+    period: '2020 – 2024',
+   },
+  { Icon: Trophy, text: 'Engineering & Renewable Energy Competitions.',
+    period: '2025',
+   },
   {
     Icon: Activity,
     text: 'Sports: Active player in volleyball, handball, and cricket at school and university.',
   },
   {
     Icon: HeartHandshake,
-    text: 'Volunteer, Bangladesh Physics Olympiad (2023 & 2024)',
-    period: '2023–2024',
+    text: 'Volunteer, Bangladesh Physics Olympiad ',
+    period: '2023 – 2024',
   },
   {
     Icon: Telescope,
-    text: 'Volunteer, Bangladesh Olympiad on Astronomy and Astrophysics (2024)',
+    text: 'Volunteer, Bangladesh Olympiad on Astronomy and Astrophysics',
     period: '2024',
   },
   {
     Icon: PawPrint,
-    text: 'Volunteer, Wildlife Rescue and Conservation, Bangladesh Forest Department (2019–2023)',
-    period: '2019–2023',
+    text: 'Volunteer, Wildlife Rescue and Conservation, Bangladesh Forest Department',
+    period: '2019 – Present',
   },
 ]
 

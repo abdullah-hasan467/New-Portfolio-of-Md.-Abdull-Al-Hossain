@@ -7,7 +7,7 @@ export default function About() {
       <div className="container about-grid">
         <Reveal className="about-photo">
           <div className="frame">
-            <img src={profile.heroPhoto} alt="" />
+            <img src={profile.about_photo} alt="Image of Hossain" />
           </div>
         </Reveal>
 
