@@ -50,22 +50,23 @@ function useNow() {
   return now
 }
 
-function LiveClock() {
-  const now = useNow()
-
+function getParts(now) {
   const parts = timeFmt.formatToParts(now)
   const get = (type) => parts.find((p) => p.type === type)?.value ?? ''
-  const hh = get('hour')
-  const mm = get('minute')
-  const ss = get('second')
-  const ampm = get('dayPeriod')
+  return {
+    hh: get('hour'),
+    mm: get('minute'),
+    ss: get('second'),
+    ampm: get('dayPeriod'),
+    date: dateFmt.format(now),
+  }
+}
 
+/* Desktop: ThemeToggle-এর পাশে, দুই লাইন */
+function DesktopClock({ now }) {
+  const { hh, mm, ss, ampm, date } = getParts(now)
   return (
-    <div
-      className="live-clock"
-      title={`${dateFmt.format(now)} ${hh}:${mm}:${ss} ${ampm}`}
-      aria-hidden="true"
-    >
+    <div className="live-clock" aria-hidden="true">
       <div className="clock-time">
         <span className="clock-dot" />
         <span className="clock-digits">
@@ -74,7 +75,24 @@ function LiveClock() {
         </span>
         <span className="clock-ampm">{ampm}</span>
       </div>
-      <div className="clock-date">{dateFmt.format(now)}</div>
+      <div className="clock-date">{date}</div>
+    </div>
+  )
+}
+
+/* Mobile: নামের ঠিক নিচে, এক লাইনে */
+function MobileClock({ now }) {
+  const { hh, mm, ss, ampm, date } = getParts(now)
+  return (
+    <div className="mobile-clock" aria-hidden="true">
+      <span className="clock-dot" />
+      <span className="mclock-time">
+        {hh}:{mm}
+        <span className="clock-sec">:{ss}</span>
+        <span className="mclock-ampm">{ampm}</span>
+      </span>
+      <span className="mclock-sep">|</span>
+      <span className="mclock-date">{date}</span>
     </div>
   )
 }
@@ -82,6 +100,7 @@ function LiveClock() {
 export default function Header() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const now = useNow()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -92,10 +111,13 @@ export default function Header() {
   return (
     <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-row">
-        <a href="#top" className="brand" onClick={() => setOpen(false)}>
-          <Cpu size={20} strokeWidth={1.75} />
-          <span>{profile.shortName}</span>
-        </a>
+        <div className="brand-block">
+          <a href="#top" className="brand" onClick={() => setOpen(false)}>
+            <Cpu size={20} strokeWidth={1.75} />
+            <span>{profile.shortName}</span>
+          </a>
+          <MobileClock now={now} />
+        </div>
 
         <nav className={`nav-links ${open ? 'open' : ''}`}>
           {links.map((link) => (
@@ -105,7 +127,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <LiveClock />
+        <DesktopClock now={now} />
 
         <ThemeToggle />
 
@@ -142,6 +164,16 @@ export default function Header() {
           height: 72px;
           gap: 16px;
         }
+
+        /* ---------- Brand + mobile clock ---------- */
+        .brand-block {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          gap: 5px;
+          min-width: 0;
+        }
         .brand {
           display: flex;
           align-items: center;
@@ -158,6 +190,10 @@ export default function Header() {
           color: var(--copper);
           flex-shrink: 0;
         }
+        .mobile-clock {
+          display: none;
+        }
+
         .nav-links {
           display: flex;
           gap: 30px;
@@ -188,7 +224,7 @@ export default function Header() {
           flex-shrink: 0;
         }
 
-        /* ---------- Live clock ---------- */
+        /* ---------- Desktop clock ---------- */
         .live-clock {
           display: flex;
           flex-direction: column;
@@ -249,7 +285,6 @@ export default function Header() {
           .clock-dot { animation: none; }
         }
 
-        /* Tablet / small laptop: nav আর clock একসাথে tight হলে gap কমাও */
         @media (max-width: 1100px) {
           .nav-links { gap: 20px; }
           .nav-links a { font-size: 0.78rem; }
@@ -257,6 +292,12 @@ export default function Header() {
 
         /* ---------- Mobile ---------- */
         @media (max-width: 860px) {
+          .nav-row {
+            gap: 10px;
+          }
+          .brand-block {
+            flex: 1;
+          }
           .nav-toggle {
             display: flex;
           }
@@ -282,31 +323,55 @@ export default function Header() {
             border-bottom: 1px solid var(--line);
             font-size: 0.82rem;
           }
-          .nav-row {
-            gap: 10px;
-          }
-          /* nav-links fixed হওয়ায় clock-কে right দিকে ঠেলে দাও */
+
+          /* desktop clock লুকাও, নামের নিচের clock দেখাও */
           .live-clock {
-            margin-left: auto;
-            padding-left: 12px;
+            display: none;
+          }
+          .mobile-clock {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding-left: 30px; /* icon (20px) + gap (10px), যাতে নামের সাথে align হয় */
+            font-family: var(--font-mono);
+            font-variant-numeric: tabular-nums;
+            font-size: 0.68rem;
+            line-height: 1;
+            letter-spacing: 0.04em;
+            color: var(--ink);
+            white-space: nowrap;
+            user-select: none;
+            position: relative;
+          }
+          .mobile-clock .clock-dot {
+            position: absolute;
+            left: 7px;
+            width: 5px;
+            height: 5px;
+          }
+          .mclock-ampm {
+            margin-left: 4px;
+            font-size: 0.56rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--copper);
+          }
+          .mclock-sep {
+            color: var(--line);
+          }
+          .mclock-date {
+            font-size: 0.62rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
           }
         }
 
-        /* Phone: শুধু time দেখাও, date লুকাও */
-        @media (max-width: 480px) {
-          .live-clock {
-            height: auto;
-            padding-left: 10px;
-          }
-          .clock-date { display: none; }
-          .clock-time { font-size: 0.82rem; gap: 5px; }
-          .clock-ampm { font-size: 0.58rem; }
-        }
-
-        /* খুব ছোট screen: dot আর AM/PM-এর জায়গা বাঁচাও */
-        @media (max-width: 360px) {
-          .clock-dot { display: none; }
-          .clock-time { font-size: 0.76rem; }
+        /* ছোট phone: জায়গা কম, তাই font একটু ছোট */
+        @media (max-width: 380px) {
+          .mobile-clock { font-size: 0.62rem; gap: 5px; }
+          .mclock-date { font-size: 0.56rem; letter-spacing: 0.04em; }
+          .mclock-ampm { font-size: 0.5rem; }
         }
       `}</style>
     </header>
