@@ -64,6 +64,10 @@ export default function About() {
           color: var(--ink-soft);
           margin-bottom: 18px;
           max-width: 620px;
+          text-align: justify;
+          text-justify: inter-word;
+          hyphens: auto;
+          -webkit-hyphens: auto;
         }
         .about-closing {
           color: var(--ink-faint);

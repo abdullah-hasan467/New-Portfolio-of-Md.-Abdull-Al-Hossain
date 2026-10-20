@@ -146,20 +146,21 @@ button:focus-visible {
 /* Section title */
 .section-head {
   margin-bottom: 48px;
-  max-width: 640px;
+  max-width: none;          /* 640px সরিয়ে দাও */
 }
 
 .section-head h2 {
   font-size: clamp(2rem, 4.5vw, 3rem);
   margin-top: 10px;
+  white-space: nowrap;      /* এক লাইনে রাখবে */
 }
 
 .section-head p {
   margin-top: 14px;
   color: var(--ink-soft);
   font-size: 1.05rem;
+  max-width: 640px;         /* paragraph পড়তে সুবিধার জন্য সরু থাকবে */
 }
-
 section {
   padding: 96px 0;
   border-bottom: 1px solid var(--line);
@@ -170,9 +171,10 @@ section:last-of-type {
   border-bottom: none;
 }
 
-@media (max-width: 720px) {
-  section {
-    padding: 64px 0;
+@media (max-width: 900px) {
+  .section-head h2 {
+    white-space: normal;      /* ছোট screen-এ screen অনুযায়ী ভাঙবে */
+    overflow-wrap: break-word;
   }
 }
 
@@ -276,3 +278,4 @@ section:last-of-type {
 .skip-link:focus {
   top: 16px;
 }
+

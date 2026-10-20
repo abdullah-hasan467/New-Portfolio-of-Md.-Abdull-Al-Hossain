@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Menu, X, Cpu } from 'lucide-react'
 import { profile } from '../data/content'
 import ThemeToggle from './ThemeToggle'
+import { useNow, DesktopClock, MobileClock, clockCss } from './Clock'
 
 const links = [
   { href: '#about', label: 'About' },
@@ -12,90 +13,6 @@ const links = [
   { href: '#projects', label: 'Projects' },
   { href: '#contact', label: 'Contact' },
 ]
-
-/* Visitor-এর নিজের timezone দেখাতে চাইলে undefined রাখো।
-   সবসময় Bangladesh time চাইলে 'Asia/Dhaka' দাও। */
-const TIME_ZONE = undefined
-
-const timeFmt = new Intl.DateTimeFormat('en-US', {
-  hour: '2-digit',
-  minute: '2-digit',
-  second: '2-digit',
-  hour12: true,
-  timeZone: TIME_ZONE,
-})
-
-const dateFmt = new Intl.DateTimeFormat('en-GB', {
-  weekday: 'short',
-  day: '2-digit',
-  month: 'short',
-  year: 'numeric',
-  timeZone: TIME_ZONE,
-})
-
-function useNow() {
-  const [now, setNow] = useState(() => new Date())
-
-  useEffect(() => {
-    let timer
-    // প্রতিটা সেকেন্ডের boundary-তে tick করে, তাই drift হয় না
-    const tick = () => {
-      setNow(new Date())
-      timer = setTimeout(tick, 1000 - (Date.now() % 1000) + 5)
-    }
-    tick()
-    return () => clearTimeout(timer)
-  }, [])
-
-  return now
-}
-
-function getParts(now) {
-  const parts = timeFmt.formatToParts(now)
-  const get = (type) => parts.find((p) => p.type === type)?.value ?? ''
-  return {
-    hh: get('hour'),
-    mm: get('minute'),
-    ss: get('second'),
-    ampm: get('dayPeriod'),
-    date: dateFmt.format(now),
-  }
-}
-
-/* Desktop: ThemeToggle-এর পাশে, দুই লাইন */
-function DesktopClock({ now }) {
-  const { hh, mm, ss, ampm, date } = getParts(now)
-  return (
-    <div className="live-clock" aria-hidden="true">
-      <div className="clock-time">
-        <span className="clock-dot" />
-        <span className="clock-digits">
-          {hh}:{mm}
-          <span className="clock-sec">:{ss}</span>
-        </span>
-        <span className="clock-ampm">{ampm}</span>
-      </div>
-      <div className="clock-date">{date}</div>
-    </div>
-  )
-}
-
-/* Mobile: নামের ঠিক নিচে, এক লাইনে */
-function MobileClock({ now }) {
-  const { hh, mm, ss, ampm, date } = getParts(now)
-  return (
-    <div className="mobile-clock" aria-hidden="true">
-      <span className="clock-dot" />
-      <span className="mclock-time">
-        {hh}:{mm}
-        <span className="clock-sec">:{ss}</span>
-        <span className="mclock-ampm">{ampm}</span>
-      </span>
-      <span className="mclock-sep">|</span>
-      <span className="mclock-date">{date}</span>
-    </div>
-  )
-}
 
 export default function Header() {
   const [open, setOpen] = useState(false)
@@ -165,7 +82,7 @@ export default function Header() {
           gap: 16px;
         }
 
-        /* ---------- Brand + mobile clock ---------- */
+        /* ---------- Brand ---------- */
         .brand-block {
           display: flex;
           flex-direction: column;
@@ -190,10 +107,8 @@ export default function Header() {
           color: var(--copper);
           flex-shrink: 0;
         }
-        .mobile-clock {
-          display: none;
-        }
 
+        /* ---------- Nav ---------- */
         .nav-links {
           display: flex;
           gap: 30px;
@@ -224,73 +139,11 @@ export default function Header() {
           flex-shrink: 0;
         }
 
-        /* ---------- Desktop clock ---------- */
-        .live-clock {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-          justify-content: center;
-          gap: 4px;
-          height: 38px;
-          padding: 0 0 0 16px;
-          border-left: 1px solid var(--line);
-          font-family: var(--font-mono);
-          font-variant-numeric: tabular-nums;
-          line-height: 1;
-          white-space: nowrap;
-          user-select: none;
-          flex-shrink: 0;
-        }
-        .clock-time {
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          font-size: 0.9rem;
-          font-weight: 500;
-          letter-spacing: 0.04em;
-          color: var(--ink);
-        }
-        .clock-sec {
-          color: var(--copper-bright);
-        }
-        .clock-ampm {
-          font-size: 0.62rem;
-          font-weight: 600;
-          letter-spacing: 0.1em;
-          color: var(--copper);
-          align-self: flex-end;
-          padding-bottom: 1px;
-        }
-        .clock-dot {
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          background: var(--copper);
-          box-shadow: 0 0 0 0 var(--copper);
-          animation: clockPulse 2s ease-out infinite;
-          flex-shrink: 0;
-        }
-        .clock-date {
-          font-size: 0.64rem;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: var(--ink-soft);
-        }
-        @keyframes clockPulse {
-          0%   { box-shadow: 0 0 0 0 rgba(200, 121, 58, 0.55); }
-          70%  { box-shadow: 0 0 0 6px rgba(200, 121, 58, 0); }
-          100% { box-shadow: 0 0 0 0 rgba(200, 121, 58, 0); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .clock-dot { animation: none; }
-        }
-
         @media (max-width: 1100px) {
           .nav-links { gap: 20px; }
           .nav-links a { font-size: 0.78rem; }
         }
 
-        /* ---------- Mobile ---------- */
         @media (max-width: 860px) {
           .nav-row {
             gap: 10px;
@@ -323,56 +176,10 @@ export default function Header() {
             border-bottom: 1px solid var(--line);
             font-size: 0.82rem;
           }
-
-          /* desktop clock লুকাও, নামের নিচের clock দেখাও */
-          .live-clock {
-            display: none;
-          }
-          .mobile-clock {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding-left: 30px; /* icon (20px) + gap (10px), যাতে নামের সাথে align হয় */
-            font-family: var(--font-mono);
-            font-variant-numeric: tabular-nums;
-            font-size: 0.68rem;
-            line-height: 1;
-            letter-spacing: 0.04em;
-            color: var(--ink);
-            white-space: nowrap;
-            user-select: none;
-            position: relative;
-          }
-          .mobile-clock .clock-dot {
-            position: absolute;
-            left: 7px;
-            width: 5px;
-            height: 5px;
-          }
-          .mclock-ampm {
-            margin-left: 4px;
-            font-size: 0.56rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            color: var(--copper);
-          }
-          .mclock-sep {
-            color: var(--line);
-          }
-          .mclock-date {
-            font-size: 0.62rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--ink-soft);
-          }
         }
 
-        /* ছোট phone: জায়গা কম, তাই font একটু ছোট */
-        @media (max-width: 380px) {
-          .mobile-clock { font-size: 0.62rem; gap: 5px; }
-          .mclock-date { font-size: 0.56rem; letter-spacing: 0.04em; }
-          .mclock-ampm { font-size: 0.5rem; }
-        }
+        /* ---------- Clock styles (Clock.jsx থেকে) ---------- */
+        ${clockCss}
       `}</style>
     </header>
   )

@@ -6,13 +6,24 @@ export default function Thesis() {
   return (
     <section id="thesis">
       <div className="container">
-        <Reveal className="section-head">
-          <p className="tag">06 · Thesis</p>
-          <h2>{thesis.title}</h2>
-          <p className="funding">
-            <Sun size={16} /> {thesis.funding}
-          </p>
-        </Reveal>
+      <Reveal className="section-head">
+  <p className="tag">06 · Thesis</p>
+  <h2 className="thesis-title">
+    {(() => {
+      const words = thesis.title.split(' ')
+      const mid = Math.ceil(words.length / 2)
+      return (
+        <>
+          <span className="tt-line">{words.slice(0, mid).join(' ')}</span>{' '}
+          <span className="tt-line">{words.slice(mid).join(' ')}</span>
+        </>
+      )
+    })()}
+  </h2>
+  <p className="funding">
+    <Sun size={16} /> {thesis.funding}
+  </p>
+</Reveal>
 
         <div className="thesis-grid">
           <Reveal className="thesis-media">
@@ -101,6 +112,10 @@ export default function Thesis() {
           color: var(--ink-soft);
           font-size: 1.05rem;
           margin-bottom: 24px;
+          text-align: justify;
+          text-justify: inter-word;
+          hyphens: auto;
+          -webkit-hyphens: auto;
         }
         .thesis-details {
           list-style: none;
@@ -191,6 +206,34 @@ export default function Thesis() {
             border-bottom: none;
           }
         }
+        /* Desktop / tablet: ঠিক ২ লাইন */
+.section-head h2.thesis-title {
+  white-space: normal;
+  max-width: none;
+  line-height: 1.2;
+  font-size: clamp(1.4rem, 3.6vw, 2.6rem);
+}
+
+.section-head h2.thesis-title .tt-line {
+  display: block;
+  white-space: nowrap;
+}
+
+/* Mobile: ৩-৪ লাইনে ভাঙবে */
+@media (max-width: 720px) {
+  .section-head h2.thesis-title {
+    font-size: clamp(1.25rem, 6.4vw, 1.9rem);
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+
+  .section-head h2.thesis-title .tt-line {
+    display: inline;
+    white-space: normal;
+  }
+}
+
+
       `}</style>
     </section>
   )

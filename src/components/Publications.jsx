@@ -1,4 +1,4 @@
-import { ExternalLink, FileText, Mic, Clock3 } from 'lucide-react'
+import { ExternalLink, FileText, BookOpenText , Clock3, Presentation  } from 'lucide-react'
 import { publications } from '../data/content'
 import Reveal from './Reveal'
 
@@ -41,7 +41,7 @@ export default function Publications() {
 
         <Reveal className="pub-group">
           <h3 className="pub-group-title journal">
-            <FileText size={18} /> Journal Articles (Peer-Reviewed)
+            <FileText size={25} /> Journal Articles (Peer-Reviewed)
           </h3>
           {byYearDesc(publications.journals).map((item, i) => (
             <PubRow key={i} item={item} />
@@ -50,7 +50,7 @@ export default function Publications() {
 
         <Reveal delay={80} className="pub-group">
           <h3 className="pub-group-title conference">
-            <Mic size={18} /> International Conference Proceedings (Peer-Reviewed)
+            <BookOpenText size={25} /> International Conference Proceedings (Peer-Reviewed)
           </h3>
           {byYearDesc(publications.conferences).map((item, i) => (
             <PubRow key={i} item={item} showStatus />
@@ -59,7 +59,7 @@ export default function Publications() {
 
         {/* <Reveal delay={140} className="pub-group">
           <h3 className="pub-group-title review">
-            <Clock3 size={18} /> Manuscript Under Review
+            <Clock3 size={25} /> Manuscript Under Review
           </h3>
           {byYearDesc(publications.underReview).map((item, i) => (
             <PubRow key={i} item={item} />
@@ -68,7 +68,7 @@ export default function Publications() {
 
         <Reveal delay={200} className="pub-group">
           <h3 className="pub-group-title presentations">
-            <Mic size={18} /> International Conference Presentations
+            <Presentation size={25} /> International Conference Presentations
           </h3>
           {byYearDesc(publications.presentations).map((item, i) => (
             <PubRow key={i} item={item} />
