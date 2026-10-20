@@ -13,6 +13,72 @@ const links = [
   { href: '#contact', label: 'Contact' },
 ]
 
+/* Visitor-এর নিজের timezone দেখাতে চাইলে undefined রাখো।
+   সবসময় Bangladesh time চাইলে 'Asia/Dhaka' দাও। */
+const TIME_ZONE = undefined
+
+const timeFmt = new Intl.DateTimeFormat('en-US', {
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+  hour12: true,
+  timeZone: TIME_ZONE,
+})
+
+const dateFmt = new Intl.DateTimeFormat('en-GB', {
+  weekday: 'short',
+  day: '2-digit',
+  month: 'short',
+  year: 'numeric',
+  timeZone: TIME_ZONE,
+})
+
+function useNow() {
+  const [now, setNow] = useState(() => new Date())
+
+  useEffect(() => {
+    let timer
+    // প্রতিটা সেকেন্ডের boundary-তে tick করে, তাই drift হয় না
+    const tick = () => {
+      setNow(new Date())
+      timer = setTimeout(tick, 1000 - (Date.now() % 1000) + 5)
+    }
+    tick()
+    return () => clearTimeout(timer)
+  }, [])
+
+  return now
+}
+
+function LiveClock() {
+  const now = useNow()
+
+  const parts = timeFmt.formatToParts(now)
+  const get = (type) => parts.find((p) => p.type === type)?.value ?? ''
+  const hh = get('hour')
+  const mm = get('minute')
+  const ss = get('second')
+  const ampm = get('dayPeriod')
+
+  return (
+    <div
+      className="live-clock"
+      title={`${dateFmt.format(now)} ${hh}:${mm}:${ss} ${ampm}`}
+      aria-hidden="true"
+    >
+      <div className="clock-time">
+        <span className="clock-dot" />
+        <span className="clock-digits">
+          {hh}:{mm}
+          <span className="clock-sec">:{ss}</span>
+        </span>
+        <span className="clock-ampm">{ampm}</span>
+      </div>
+      <div className="clock-date">{dateFmt.format(now)}</div>
+    </div>
+  )
+}
+
 export default function Header() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -38,6 +104,8 @@ export default function Header() {
             </a>
           ))}
         </nav>
+
+        <LiveClock />
 
         <ThemeToggle />
 
@@ -83,9 +151,12 @@ export default function Header() {
           font-size: 1.05rem;
           color: var(--ink);
           letter-spacing: 0.01em;
+          white-space: nowrap;
+          min-width: 0;
         }
         .brand svg {
           color: var(--copper);
+          flex-shrink: 0;
         }
         .nav-links {
           display: flex;
@@ -114,7 +185,77 @@ export default function Header() {
           color: var(--ink);
           padding: 8px;
           cursor: pointer;
+          flex-shrink: 0;
         }
+
+        /* ---------- Live clock ---------- */
+        .live-clock {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          justify-content: center;
+          gap: 4px;
+          height: 38px;
+          padding: 0 0 0 16px;
+          border-left: 1px solid var(--line);
+          font-family: var(--font-mono);
+          font-variant-numeric: tabular-nums;
+          line-height: 1;
+          white-space: nowrap;
+          user-select: none;
+          flex-shrink: 0;
+        }
+        .clock-time {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 0.9rem;
+          font-weight: 500;
+          letter-spacing: 0.04em;
+          color: var(--ink);
+        }
+        .clock-sec {
+          color: var(--copper-bright);
+        }
+        .clock-ampm {
+          font-size: 0.62rem;
+          font-weight: 600;
+          letter-spacing: 0.1em;
+          color: var(--copper);
+          align-self: flex-end;
+          padding-bottom: 1px;
+        }
+        .clock-dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: var(--copper);
+          box-shadow: 0 0 0 0 var(--copper);
+          animation: clockPulse 2s ease-out infinite;
+          flex-shrink: 0;
+        }
+        .clock-date {
+          font-size: 0.64rem;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: var(--ink-soft);
+        }
+        @keyframes clockPulse {
+          0%   { box-shadow: 0 0 0 0 rgba(200, 121, 58, 0.55); }
+          70%  { box-shadow: 0 0 0 6px rgba(200, 121, 58, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(200, 121, 58, 0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .clock-dot { animation: none; }
+        }
+
+        /* Tablet / small laptop: nav আর clock একসাথে tight হলে gap কমাও */
+        @media (max-width: 1100px) {
+          .nav-links { gap: 20px; }
+          .nav-links a { font-size: 0.78rem; }
+        }
+
+        /* ---------- Mobile ---------- */
         @media (max-width: 860px) {
           .nav-toggle {
             display: flex;
@@ -139,7 +280,33 @@ export default function Header() {
           .nav-links a {
             padding: 16px 24px;
             border-bottom: 1px solid var(--line);
+            font-size: 0.82rem;
           }
+          .nav-row {
+            gap: 10px;
+          }
+          /* nav-links fixed হওয়ায় clock-কে right দিকে ঠেলে দাও */
+          .live-clock {
+            margin-left: auto;
+            padding-left: 12px;
+          }
+        }
+
+        /* Phone: শুধু time দেখাও, date লুকাও */
+        @media (max-width: 480px) {
+          .live-clock {
+            height: auto;
+            padding-left: 10px;
+          }
+          .clock-date { display: none; }
+          .clock-time { font-size: 0.82rem; gap: 5px; }
+          .clock-ampm { font-size: 0.58rem; }
+        }
+
+        /* খুব ছোট screen: dot আর AM/PM-এর জায়গা বাঁচাও */
+        @media (max-width: 360px) {
+          .clock-dot { display: none; }
+          .clock-time { font-size: 0.76rem; }
         }
       `}</style>
     </header>
