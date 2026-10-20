@@ -57,7 +57,7 @@ export default function Thesis() {
         <Reveal delay={180} className="spec-sheet">
           <div className="spec-header">
             <span className="spec-label">PERFORMANCE / DATASHEET</span>
-            <span className="spec-rev">REV 1.0</span>
+            <span className="spec-rev">REV 3.0</span>
           </div>
           <div className="spec-grid">
             {thesis.stats.map((stat) => (
