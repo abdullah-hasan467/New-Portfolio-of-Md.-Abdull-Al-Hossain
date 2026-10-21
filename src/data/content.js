@@ -11,7 +11,7 @@ export const profile = {
   email: 'alhossain2100@gmail.com',
   phone: '+8801799625673',
   heroPhoto: '/photos/Abdullah.png',
-  about_photo: '/public/photos/about Image.jpeg',
+  about_photo: '/public/photos/About 3.jpeg',
   resumeLink: '/Abdullah_Al_Hossain_Resume.pdf',
   social: {
     linkedin: 'https://www.linkedin.com/in/hossain888/',
