@@ -167,7 +167,7 @@ export const publications = {
      {
   year: '2026',
   authors: 'MA Al Hossain, S. S. Ahmed & M. A. I. Alvy',
-  title: 'Transient Voltage and Current Response of Transmission Networks to Three-Phase Faults and Generation Def-icits: A Simulation Approach',
+  title: 'Transient Voltage and Current Response of Transmission Networks to Three-Phase Faults and Generation Deficits: A Simulation Approach',
   venue: '5th International Conference on Robotics, Electrical and Signal Processing Techniques (ICREST 2027)',
   status: 'Under Review'
 },
