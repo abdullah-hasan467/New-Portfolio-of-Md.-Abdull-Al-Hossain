@@ -1,4 +1,5 @@
-import NeuralBackground from './components/NeuralBackground'
+import NeuralBackground from './components/NeuralBackgrounds'
+import ThemeSwitcher from './components/ThemeSwitcher'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -19,6 +20,7 @@ export default function App() {
   return (
     <>
       <NeuralBackground />
+      <ThemeSwitcher />
       <a href="#about" className="skip-link">Skip to content</a>
       <Header />
       <main>
