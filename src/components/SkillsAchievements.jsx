@@ -3,7 +3,7 @@ import { trainingAndAwards } from '../data/content'
 import Reveal from './Reveal'
 
 export default function SkillsAchievements() {
-  const { training, awards, certifications, toolsProficiency, languages } = trainingAndAwards
+  const { training, awards, certifications, toolsProficiency, languages, workshops } = trainingAndAwards
 
   return (
     <section id="achievements">
@@ -44,6 +44,15 @@ export default function SkillsAchievements() {
             <ul className="tag-list">
               {toolsProficiency.map((t) => <li key={t} className="pill">{t}</li>)}
               {languages.map((l) => <li key={l} className="pill pill-accent">{l}</li>)}
+            </ul>
+          </Reveal>
+
+
+          <Reveal delay={240} className="ach-card">
+            <h3><Trophy size={18} /> Technical Workshops</h3>
+            <ul className="tag-list">
+              {workshops.map((t) => <li key={t} className="pill">{t}</li>)}
+              
             </ul>
           </Reveal>
         </div>

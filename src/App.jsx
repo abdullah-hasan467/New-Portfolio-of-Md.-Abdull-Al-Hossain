@@ -15,6 +15,7 @@ import Footer from './components/Footer'
 import Reviewer from './components/Reviewer'
 import Extracurricular from './components/Extracurricular'
 import Affiliations from './components/Affiliations'
+import Professional_Workshop from './components/Professional_Workshop'
 
 export default function App() {
   return (
@@ -33,10 +34,11 @@ export default function App() {
         <Reviewer />
         <Thesis />
         <Projects />
-        <SkillsAchievements />
-        <Extracurricular />
         
-<Affiliations />
+        <SkillsAchievements />
+        <Extracurricular /> 
+        {/* <Professional_Workshop /> */}
+        <Affiliations />
         <Contact />
       </main>
       <Footer />

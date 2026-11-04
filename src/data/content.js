@@ -441,6 +441,9 @@ export const trainingAndAwards = {
         'Completed a short course covering network administration, design, and engineering fundamentals.',
     },
   ],
+  workshops: [
+    "Electrical Power Systems and Smart Grid Technology", "Industrial Automation and Control Systems", "Renewable Energy and Solar PV System Design","PCB Design and Embedded Systems" 
+  ],
   toolsProficiency: [
     'MATLAB', 'PSIM', 'PSpice', 'Proteus', 'CST Studio Suite', 'Cadence',
     'AutoCAD', 'Quartus', 'PIC C Compiler', 'Cisco Packet Tracer', 'Microsoft Excel',
