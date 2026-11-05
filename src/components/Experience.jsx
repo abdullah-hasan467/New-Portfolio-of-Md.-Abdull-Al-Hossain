@@ -1,13 +1,12 @@
-import { Briefcase } from 'lucide-react'
-import { experience } from '../data/content'
-import Reveal from './Reveal'
+import { Briefcase } from "lucide-react";
+import { experience } from "../data/content";
+import Reveal from "./Reveal";
 
 export default function Experience() {
   return (
     <section id="experience">
       <div className="container">
         <Reveal className="section-head">
-        
           <p className="tag">03 · Experience</p>
           <h2>Where the theory met the hardware</h2>
           <p>
@@ -120,5 +119,7 @@ export default function Experience() {
         }
       `}</style>
     </section>
-  )
+  );
 }
+
+// Hasan
