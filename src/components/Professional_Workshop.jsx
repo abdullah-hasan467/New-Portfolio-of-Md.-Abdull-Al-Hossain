@@ -13,7 +13,7 @@ export default function Professional_Workshop() {
     <section id="affiliations">
       <div className="container">
         <Reveal className="section-head">
-          <p className="tag">08A· Achievements</p>
+          <p className="tag">08A· Sessions</p>
           <h2>Technical Workshops</h2> 
         </Reveal>
 
