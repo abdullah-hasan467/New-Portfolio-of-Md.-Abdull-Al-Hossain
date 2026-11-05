@@ -32,7 +32,7 @@ export default function Professional_Workshop() {
           ))}
         </div>
       </div>
-
+{/* Hasan */}
       <style>{`
         .af-list {
           display: flex;
