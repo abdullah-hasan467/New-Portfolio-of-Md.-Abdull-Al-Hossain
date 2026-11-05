@@ -48,12 +48,12 @@ export default function SkillsAchievements() {
           </Reveal>
 
 
-          <Reveal delay={240} className="ach-card">
+          {/* <Reveal delay={240} className="ach-card">
             <h3><Trophy size={18} /> Technical Workshops</h3>
             <ul className="tag-list">
               {workshops.map((t) => <li key={t} className="pill">{t}</li>)}
             </ul>
-          </Reveal>
+          </Reveal> */}
         </div>
       </div>
 

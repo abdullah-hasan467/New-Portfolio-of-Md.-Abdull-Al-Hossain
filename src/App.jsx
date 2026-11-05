@@ -34,10 +34,10 @@ export default function App() {
         <Reviewer />
         <Thesis />
         <Projects />
-        
         <SkillsAchievements />
+        <Professional_Workshop />
         <Extracurricular /> 
-        {/* <Professional_Workshop /> */}
+        
         <Affiliations />
         <Contact />
       </main>

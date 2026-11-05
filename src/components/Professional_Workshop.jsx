@@ -2,8 +2,10 @@ import { BadgeCheck } from 'lucide-react'
 import Reveal from './Reveal'
 
 const items = [
-  'Member, IEEE.',
-  'Member, Institution of Engineers (IEB) Bangladesh',
+  'Electrical Power Systems and Smart Grid Technology',
+  'Industrial Automation and Control Systems',
+  'Renewable Energy and Solar PV System Design',
+  'PCB Design and Embedded Systems'
 ]
 
 export default function Professional_Workshop() {
@@ -11,8 +13,8 @@ export default function Professional_Workshop() {
     <section id="affiliations">
       <div className="container">
         <Reveal className="section-head">
-          <p className="tag">08b · Involvements</p>
-          <h2>Technical Workshops</h2>; 
+          <p className="tag">08A· Achievements</p>
+          <h2>Technical Workshops</h2> 
         </Reveal>
 
         <div className="af-list">

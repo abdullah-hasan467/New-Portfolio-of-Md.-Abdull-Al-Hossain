@@ -34,7 +34,7 @@ export default function Extracurricular() {
     <section id="extracurricular">
       <div className="container">
         <Reveal className="section-head">
-          <p className="tag">08a · Engagements</p>
+          <p className="tag">08B · Engagements</p>
           <h2>Extracurricular Activities &amp; Volunteering</h2>
         </Reveal>
 
