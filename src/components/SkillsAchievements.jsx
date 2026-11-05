@@ -52,7 +52,6 @@ export default function SkillsAchievements() {
             <h3><Trophy size={18} /> Technical Workshops</h3>
             <ul className="tag-list">
               {workshops.map((t) => <li key={t} className="pill">{t}</li>)}
-              
             </ul>
           </Reveal>
         </div>
